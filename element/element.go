@@ -20,9 +20,6 @@ const (
 // element denovo. Avoid creating a struct manually, because setting the VR
 // field is a bit tricky.
 type Element struct {
-	// Tag is a pair of <group, element>. See tags.go for possible values.
-	Tag dicomtag.Tag
-
 	// List of values in the element. Their types depends on value
 	// representation (VR) of the Tag; Cf. tag.go.
 	//
@@ -72,6 +69,9 @@ type Element struct {
 	// this means.  It's one of the pointless complexities in the DICOM
 	// standard.
 	UndefinedLength bool
+
+	// Tag is a pair of <group, element>. See tags.go for possible values.
+	Tag dicomtag.Tag
 }
 
 // NewElement creates a new Element with the given tag and values. The type of
